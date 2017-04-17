@@ -1,6 +1,16 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<center class="avatar-parent-child left">
+  <img class="avatar" src="http://i.imgur.com/B2RZT55.png" width="60" height="60" align="top">
+</center>
 
-<%= form_tag("/sms/send", method: "post") do %>
-<!-- add form elements here -->
-<% end %>
+<center>
+    <h1>Welcome to Instant SMS</h1>
+    <p>You can use our website to send SMS text messages!</p>
+    
+    <%= form_tag("/sms/send", method: "post") do %>
+        <%= label_tag(:q, "Message") %><br/>
+        <%= text_field_tag(:q) %><p>
+        <%= label_tag(:q, "Number") %><br>
+        <%= text_field_tag(:q) %><p>
+        <%= submit_tag("Submit") %>
+    <% end %>
+</center>
