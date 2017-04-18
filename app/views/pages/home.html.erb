@@ -1,16 +1,13 @@
-<center class="avatar-parent-child left">
-  <img class="avatar" src="http://i.imgur.com/B2RZT55.png" width="60" height="60" align="top">
-</center>
-
 <center>
+    <img src="http://i.imgur.com/B2RZT55.png" width="60" height="60" align="top">
     <h1>Welcome to Instant SMS</h1>
     <p>You can use our website to send SMS text messages!</p>
     
     <%= form_tag("/sms/send", method: "post") do %>
-        <%= label_tag(:q, "Message") %><br/>
-        <%= text_field_tag(:q) %><p>
-        <%= label_tag(:q, "Number") %><br>
-        <%= text_field_tag(:q) %><p>
+        <%= label_tag(:keyword, "Message") %><br/>
+        <%= text_field_tag(:Message) %><p>
+        <%= label_tag(:keyword, "Number") %><br> 
+        <%= text_field_tag(:Number) %><p> 
         <%= submit_tag("Submit") %>
     <% end %>
 </center>
