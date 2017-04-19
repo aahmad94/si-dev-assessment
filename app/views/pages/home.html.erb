@@ -2,17 +2,14 @@
     <img src="http://i.imgur.com/B2RZT55.png" width="60" height="60" align="top">
     <h1>Welcome to Instant SMS</h1>
     <p>You can use our website to send SMS text messages!</p>
-    <p>You will need a Twilio account to provide an SID and authorization token.</p>
+    <p>The recipient's phone number must be Twilio verified.</p>
     
-    <%= form_tag("/sms/send", method: "post") do %>
-        <%= label_tag(:sid, "SID") %><br/>
-        <%= text_field_tag(:sid) %><p>
-        <%= label_tag(:authtoken, "Authorization Token") %><br/>
-        <%= text_field_tag(:authtoken) %><p>
-        <%= label_tag(:message, "Message") %><br/>
+ <%= form_tag("/sms/send", method: "post") do |f|%>
+     <%= label_tag(:message, "Message") %><br/>
         <%= text_field_tag(:message) %><p>
-        <%= label_tag(:number, "Number") %><br> 
+        <%= label_tag(:number, "Recipient Number") %><br> 
         <%= text_field_tag(:number) %><p> 
-        <%= submit_tag("Submit") %>
+     <%= submit_tag("Send", :class => "submit") %>
     <% end %>
+
 </center>
