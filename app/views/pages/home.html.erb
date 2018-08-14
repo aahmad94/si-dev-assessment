@@ -1,8 +1,7 @@
 <center>
     <img src="http://i.imgur.com/B2RZT55.png" width="60" height="60" align="top">
-    <h1>Welcome to Instant SMS</h1>
-    <p>You can use our website to send SMS text messages!</p>
-    <p>The recipient's phone number must be Twilio verified.</p>
+    <h1>Task Buddy</h1>
+    <p>Jot down your ideas/tasks and have them sent to your phone!</p>
     
  <%= form_tag("/sms/send", method: "post") do |f|%>
      <%= label_tag(:message, "Message") %><br/>
