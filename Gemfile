@@ -29,9 +29,6 @@ gem 'bcrypt', '~> 3.1.7'
 # A simple library for communicating with the Twilio REST API, building TwiML, and generating Twilio Client Capability Tokens
 gem 'twilio-ruby', '~> 4.13'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
