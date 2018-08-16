@@ -1,14 +1,1 @@
-<center>
-    <img src="http://i.imgur.com/B2RZT55.png" width="60" height="60" align="top">
-    <h1>Task Buddy</h1>
-    <p>Jot down your ideas/tasks and have them sent to your phone!</p>
-    
- <%= form_tag("/sms/send", method: "post") do |f|%>
-     <%= label_tag(:message, "Message") %><br/>
-        <%= text_field_tag(:message) %><p>
-        <%= label_tag(:number, "Recipient Number") %><br> 
-        <%= text_field_tag(:number) %><p> 
-     <%= submit_tag("Send", :class => "submit") %>
-    <% end %>
-    
-</center>
+<main id="root">Something went wrong...</main>
