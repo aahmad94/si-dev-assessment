@@ -1,2 +1,0 @@
-webpackHotUpdate(0,{9:function(e,t,a){"use strict";var n=c(a(0));function c(e){return e&&e.__esModule?e:{default:e}}c(a(10)).default.render(n.default.createElement("div",null,"My Minimal React Webpack Babel"),document.getElementById("root")),e.hot.accept()}});
-//# sourceMappingURL=0.04e53abf1d658bc67cfd.hot-update.js.map

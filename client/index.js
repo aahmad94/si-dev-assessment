@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const title = 'My Minimal React Webpack Babel';
+document.addEventListener('DOMContentLoaded', () => {
+  const title = 'My Minimal React Webpack Babel';
+  const root = document.getElementById('root');
+  
+  ReactDOM.render(
+    <div>{title}</div>, root
+  );
+});
 
-ReactDOM.render(
-  <div>{title}</div>,
-  document.querySelector("root")
-);
-
-module.hot.accept(); 
+// module.hot.accept(); 
