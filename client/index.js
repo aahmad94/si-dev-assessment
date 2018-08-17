@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import configureStore from './store/store';
+import Root from './components/root';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const title = 'My Minimal React Webpack Babel';
   const root = document.getElementById('root');
-  
+
+  const preLoadedState = {};
+  const store = configureStore({});
   ReactDOM.render(
-    <div>{title}</div>, root
+    <Root store={store} />, root
   );
 });
 
