@@ -5,7 +5,7 @@ class Signup extends React.Component {
     super(props);
     this.state = {
       email: '',
-      phoneNumber: '',
+      phone_number: '',
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,7 +27,7 @@ class Signup extends React.Component {
     e.preventDefault();
     const formUser = this.state;
     this.props.createNewUser(formUser)
-      .then(() => this.props.history.push('/messages'));
+      .then(() => this.props.history.push('/'));
   }
 
   render() {
@@ -46,9 +46,9 @@ class Signup extends React.Component {
 
           <input
             type='text'
-            placeholder='sms number'
+            placeholder='phone number'
             value={this.state.phoneNumber}
-            onChange={this.handleInput('phoneNumber')}
+            onChange={this.handleInput('phone_number')}
           /><br />
 
           <input

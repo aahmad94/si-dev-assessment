@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  VALID_EMAIL_REGEX = /^(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})$/i
+  VALID_EMAIL_REGEX = /\A(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})\z/i
   VALID_PHONE_NUMBER_REGEX = /\A(?:\+?\d{1,3}\s*-?)?\(?(?:\d{3})?\)?[- ]?\d{3}[- ]?\d{4}\z/
 
   before_validation :ensure_session_token
@@ -12,6 +12,8 @@ class User < ApplicationRecord
                     format: { with: VALID_PHONE_NUMBER_REGEX }
   validates :password, presence: true, length: { minimum: 6 }
   
+  attr_reader :password
+
   # ---------- associations ----------
   has_many :tasks,
     primary_key: :id,
