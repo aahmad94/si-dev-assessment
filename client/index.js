@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
 
   const preLoadedState = {};
-  const store = configureStore({});
+  const store = configureStore(preLoadedState);
   ReactDOM.render(
     <Root store={store} />, root
   );
