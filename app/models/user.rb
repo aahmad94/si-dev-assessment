@@ -11,8 +11,14 @@ class User < ApplicationRecord
   validates :phone_number, presence: true, length: { maximum: 255 },
                     format: { with: VALID_PHONE_NUMBER_REGEX }
   validates :password, presence: true, length: { minimum: 6 }
+  
+  # ---------- associations ----------
+  has_many :tasks,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: 'Task'
 
-   # ---------- Auth stuff ----------
+  # ---------- auth stuff ----------
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     if user && user.is_password?(password)
