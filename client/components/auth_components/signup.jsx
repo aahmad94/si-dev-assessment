@@ -35,7 +35,7 @@ class Signup extends React.Component {
       <div className='session-form'>
         <form>
           <h1>Sign up</h1>
-          <p>Enter your <strong>email address</strong>, <strong>display name</strong>, and <strong>password</strong></p>
+          <p>Enter your <strong>email address</strong>, <strong>phone number</strong>, and <strong>password</strong></p>
 
           <input
             type='text'

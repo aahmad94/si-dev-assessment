@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     # auth
     resources :users, only: [:create]
     resource :session, only: [:create, :destroy]
+    resources :tasks, only: [:create]
   end  
 end
