@@ -11,10 +11,6 @@ class Signup extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
-    this.props.clearErrors();
-  }
-
   componentWillReceiveProps(nextProps) {
     if (nextProps.loggedIn) {
       this.props.history.push('/');
@@ -34,22 +30,9 @@ class Signup extends React.Component {
       .then(() => this.props.history.push('/messages'));
   }
 
-  renderErrors() {
-    return (
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
-  }
-
   render() {
     return (
       <div className='session-form'>
-        {this.renderErrors()}
         <form>
           <h1>Sign up</h1>
           <p>Enter your <strong>email address</strong>, <strong>display name</strong>, and <strong>password</strong></p>
@@ -63,7 +46,7 @@ class Signup extends React.Component {
 
           <input
             type='text'
-            placeholder='display name'
+            placeholder='sms number'
             value={this.state.phoneNumber}
             onChange={this.handleInput('phoneNumber')}
           /><br />
