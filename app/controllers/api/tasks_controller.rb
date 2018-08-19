@@ -4,7 +4,7 @@ class Api::TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if (@task.save) 
-      sms(task.user_id, task.body)
+      sms(@task.user_id, @task.body)
       render :show
     else
       render json: @user.errors.full_messages, status: 422

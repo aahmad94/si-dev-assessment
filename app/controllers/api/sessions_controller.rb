@@ -1,4 +1,4 @@
-class Api::SessionController < ApplicationController
+class Api::SessionsController < ApplicationController
   def create
     @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
     if @user
@@ -20,5 +20,3 @@ class Api::SessionController < ApplicationController
     end
   end
 end
-
-

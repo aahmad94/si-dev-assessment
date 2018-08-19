@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root 'pages#home'
-
+  
+  root 'static_pages#root'
   namespace :api, defaults: { format: :json } do
     # auth
     resources :users, only: [:create]

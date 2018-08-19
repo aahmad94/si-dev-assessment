@@ -1,4 +1,4 @@
-json.extract! task, :id,
+json.extract! @task, :id,
                     :body,
                     :user_id
                     

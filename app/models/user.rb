@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})\z/i
   VALID_PHONE_NUMBER_REGEX = /\A(?:\+?\d{1,3}\s*-?)?\(?(?:\d{3})?\)?[- ]?\d{3}[- ]?\d{4}\z/
+  
+  attr_reader :password
 
   before_validation :ensure_session_token
   before_save { self.email = email.downcase }
@@ -10,9 +12,8 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   validates :phone_number, presence: true, length: { maximum: 255 },
                     format: { with: VALID_PHONE_NUMBER_REGEX }
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, length: { minimum: 6, allow_nil: true }
   
-  attr_reader :password
 
   # ---------- associations ----------
   has_many :tasks,

@@ -10,11 +10,11 @@ class Signin extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.loggedIn) {
-  //     this.props.history.push('/messages');
-  //   }
-  // }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.loggedIn) {
+      this.props.history.push('/');
+    }
+  }
 
   handleInput(field) {
     return (e) => {
@@ -26,7 +26,7 @@ class Signin extends React.Component {
     e.preventDefault();
     const user = this.state;
     this.props.login(user)
-      .then(() => this.props.history.push('/home'));
+      .then(() => this.props.history.push('/'));
   }
 
   render() {
