@@ -3,12 +3,13 @@ import React from 'react';
 export default class Tasks extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props.currentUser.id);
     this.state = {
       user_id: props.currentUser.id,
       body: ''
     };
   }
+
+
 
   handleSubmit(e) {
     e.preventDefault();

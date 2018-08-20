@@ -1,4 +1,1 @@
-json.extract! @task, :id,
-                    :body,
-                    :user_id
-                    
+json.partial! 'api/tasks/task', task: @task

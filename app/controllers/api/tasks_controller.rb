@@ -1,6 +1,10 @@
 class Api::TasksController < ApplicationController
   require 'twilio-ruby'
-  
+  def index
+    # render json for today's task entries
+    @tasks = Task.where(["user_id = ? and created_at >= ?", "#{current_user.id}", "#{Time.zone.now.beginning_of_day}"])
+    render :index
+  end 
   def create
     @task = Task.new(task_params)
     if (@task.save) 
