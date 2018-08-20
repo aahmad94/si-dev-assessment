@@ -4,7 +4,6 @@ export default class Tasks extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user_id: props.currentUser.id,
       body: ''
     };
   }

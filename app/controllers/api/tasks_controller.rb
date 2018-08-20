@@ -6,9 +6,9 @@ class Api::TasksController < ApplicationController
     render :index
   end 
   def create
-    @task = Task.new(task_params)
+    @task = Task.new(:user_id => current_user.id, :body => task_params["body"])
     if (@task.save) 
-      sms(@task.user_id, @task.body)
+      sms(current_user.id, @task.body)
       render :show
     else
       render json: @user.errors.full_messages, status: 422
@@ -24,12 +24,12 @@ class Api::TasksController < ApplicationController
     @client.account.messages.create(
       body: body,
       from: ENV["TWILIO_NUMBER"],
-      to: User.find(user_id).phone_number
+      to: current_user.phone_number
       )
   end
 
   def task_params
-    params.require(:task).permit(:user_id, :body)
+    params.require(:task).permit(:body)
   end
 
 end

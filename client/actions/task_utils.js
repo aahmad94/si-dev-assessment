@@ -5,3 +5,7 @@ export const postTask = (task) => (
     task: task
   })
 );
+
+export const getTasks = (tasks) => (
+  axios.get("/api/tasks")
+);
