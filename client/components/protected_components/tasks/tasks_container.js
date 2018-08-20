@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { createTask } from '../../../actions/task';
+import { createTask, fetchTasks } from '../../../actions/task';
 import Tasks from './tasks';
 
 const mapStateToProps = (state) => ({
@@ -9,7 +9,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  createTask: (task) => dispatch(createTask(task))
+  createTask: (task) => dispatch(createTask(task)),
+  fetchTasks: () => dispatch(fetchTasks())
 });
 
 export default withRouter(

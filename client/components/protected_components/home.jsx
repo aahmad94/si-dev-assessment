@@ -2,9 +2,9 @@ import React from 'react';
 import TasksContainer from './tasks/tasks_container';
 import LogoutContainer from '../auth_components/logout_btn';
  
-export default (
+export default () => (
   <div className="home">
-    <LogoutContainer />
     <TasksContainer />
+    <LogoutContainer />
   </div>
 );

@@ -4,15 +4,28 @@ export default class Tasks extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      body: ''
+      body: '',
+      loading: true
     };
   }
 
+  componentDidMount() {
+    this.props.fetchTasks().then(() => this.setState({loading: false}));
+  }
 
+  componentDidUpdate() {
+    if (!this.state.loading) {
+      this.scrollToBottom();
+    }
+  }
+
+  scrollToBottom() {
+    this.el.scrollIntoView({ behaviour: 'smooth' });
+  }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createTask(this.state).then(
+    this.props.createTask({body: this.state.body}).then(
       () => this.setState({
         body: ''
       })
@@ -27,18 +40,30 @@ export default class Tasks extends React.Component {
   }
 
   render() {
-    return (
-      <form
-        onSubmit={e => this.handleSubmit(e)}
-        className='message-input'>
-        <input
-          type='text'
-          value={this.state.body}
-          onChange={e => this.updateBody(e)}
-          placeholder='Enter a task...' />
-        <input type='submit' value='Send' />
-      </form>
-    );
+    if (!this.state.loading) {
+      return <div className="tasks-component">
+          <form className="task-form" onSubmit={e => this.handleSubmit(e)} className="task-input">
+            <input type="text" value={this.state.body} onChange={e => this.updateBody(e)} placeholder="Enter a task..." />
+            <input type="submit" value="Send" />
+          </form>
+          {this.props.tasks.map((task, idx) => {
+            return <div className="task-item" key={task.id}>
+                <div className="task-number">
+                  <p>{idx + 1}</p>
+                </div>
+                <div className="body">
+                  <p>{task.body}</p>
+                </div>
+              </div>;
+          })}
+          <div ref={el => { this.el = el; }} />
+        </div>;
+    } else {
+      return (
+        <div className="loading">
+          <p>loading...</p>
+        </div>);
+    }
   }
 
 }
