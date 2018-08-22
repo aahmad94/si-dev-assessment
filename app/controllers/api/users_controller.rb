@@ -14,6 +14,15 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def register_token 
+    @user = current_user
+    if @user
+      render :show 
+    else 
+      render json: { id: nil, email: nil, phone_number: nil }
+    end  
+  end 
+
   private
 
   def user_params

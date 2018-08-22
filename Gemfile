@@ -32,6 +32,12 @@ gem 'twilio-ruby', '~> 4.13'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+
+gem 'jwt'
+gem 'simple_command'
+
+gem 'rack-cors'
+
 end
 
 group :development do
