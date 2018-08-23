@@ -1,1 +1,1 @@
-json.extract! @user, :id, :phone_number, :email
+json.extract! @user, :id, :phone_number, :email, :session_token
