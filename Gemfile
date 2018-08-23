@@ -37,6 +37,7 @@ gem 'jwt'
 gem 'simple_command'
 
 gem 'rack-cors'
+gem 'rspec-core'
 
 end
 
