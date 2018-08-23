@@ -6,12 +6,11 @@ class ApplicationController < ActionController::Base
 
   def login(user)
     @current_user = user
-    session[:session_token] = user.reset_session_token!
+    user.reset_session_token!
   end
 
   def logout
     current_user.reset_session_token!
-    session[:session_token] = nil
   end
 
   def logged_in?
@@ -23,8 +22,8 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    return nil unless session[:session_token]
-    @current_user ||= User.find_by(session_token: session[:session_token])
+    return nil unless request.headers["Authorization"]
+    @current_user ||= User.find_by(session_token: request.headers["Authorization"])
     return @current_user
   end
 
